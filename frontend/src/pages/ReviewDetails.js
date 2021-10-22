@@ -4,7 +4,7 @@ import useFetch from '../hooks/useFetch'
 
 export default function ReviewDetailsReviewDetails() {
   const { id } = useParams()
-  const { loading, error, data } = useFetch('http://localhost:3000/reviews/' + id)
+  const { loading, error, data } = useFetch('http://localhost:2000/reviews/' + id)
 
   if(loading) return <p>Loading...</p>
   if(error) return <p>Error...</p>
