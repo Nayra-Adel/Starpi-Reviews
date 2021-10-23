@@ -8,8 +8,8 @@ import SiteHeader from './components/SiteHeader'
 
 // apollo client
 const client = new ApolloClient({
-  url: 'htttp://localhost:2000//graphql',
-  cache: new InMemoryCache()
+  uri: 'htttp://localhost:2000//graphql',
+  cache: new InMemoryCache(),
 })
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
             <Route path="/details/:id">
               <ReviewDetails />
             </Route>
-            <Route path="/category/:id">
+            <Route path="/categories/:id">
               <Category />
             </Route>
           </Switch>
