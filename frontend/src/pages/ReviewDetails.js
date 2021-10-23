@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
+import ReactMarkdown from 'react-markdown'
 
 const REVIEW = gql`
   query GetReview($id: ID!) {
@@ -33,7 +34,7 @@ export default function ReviewDetails() {
       {data.review.categories.map(c => (
         <small key={c.id}>{c.name}</small>
       ))}
-      <p> {data.review.body} </p>
+      <ReactMarkdown> {data.review.body} </ReactMarkdown>
     </div>
   )
 }
