@@ -8,10 +8,14 @@ const REVIEWS = gql`
       title,
       body,
       rating,
-      id
+      id,
+      categories {
+        id,
+        name
+      }
     }
   }
-`;
+`
 
 export default function HomePage() {
   const { loading, error, data } = useQuery(REVIEWS)
@@ -25,6 +29,9 @@ export default function HomePage() {
         <div key = {review.id} className = "review-card">
           <div className = "rating"> {review.rating} </div>
           <h2> {review.title} </h2>
+          {review.categories.map(c => (
+            <small key={c.id}>{c.name}</small>
+          ))}
           <p> {review.body.substring(0, 200)}... </p>
           <Link to={`/details/${review.id}`}>Read More</Link>
         </div>
