@@ -16,8 +16,8 @@ const REVIEWS = gql`
 export default function HomePage() {
   const { loading, error, data } = useQuery(REVIEWS)
 
-  if(loading) return <p>Loading...</p>
-  if(error) return <p>Error...</p>
+  if(loading) return <p>Loading Reviews...</p>
+  if(error) return <p>Error Fetching reviews...</p>
 
   return (
     <div>
